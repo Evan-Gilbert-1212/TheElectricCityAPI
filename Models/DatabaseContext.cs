@@ -8,6 +8,8 @@ namespace TheElectricCityAPI.Models
   public partial class DatabaseContext : DbContext
   {
     public DbSet<InventoryItem> InventoryItems { get; set; }
+    public DbSet<Location> Locations { get; set; }
+    public DbSet<LocationItem> LocationItems { get; set; }
 
     private string ConvertPostConnectionToConnectionString(string connection)
     {
