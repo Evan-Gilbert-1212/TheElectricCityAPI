@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TheElectricCityAPI.Models;
@@ -9,9 +10,10 @@ using TheElectricCityAPI.Models;
 namespace TheElectricCityAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200306164202_AddedOrderTables")]
+    partial class AddedOrderTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,14 +128,11 @@ namespace TheElectricCityAPI.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("OrderEmail")
-                        .HasColumnType("text");
-
                     b.HasKey("ID");
 
                     b.HasIndex("LocationId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("TheElectricCityAPI.Models.OrderItem", b =>
@@ -149,16 +148,13 @@ namespace TheElectricCityAPI.Migrations
                     b.Property<int>("OrderID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("QuantityOrdered")
-                        .HasColumnType("integer");
-
                     b.HasKey("ID");
 
                     b.HasIndex("InventoryItemID");
 
                     b.HasIndex("OrderID");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("TheElectricCityAPI.Models.LocationItem", b =>

@@ -16,5 +16,6 @@ namespace TheElectricCityAPI.Models
     public DateTime DateOrdered { get; set; } = DateTime.Now;
 
     public List<LocationItem> LocationItems { get; set; } = new List<LocationItem>();
+    public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
   }
 }

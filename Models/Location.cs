@@ -15,5 +15,6 @@ namespace TheElectricCityAPI.Models
     public string PhoneNumber { get; set; }
 
     public List<LocationItem> LocationItems { get; set; } = new List<LocationItem>();
+    public List<Order> Orders { get; set; } = new List<Order>();
   }
 }
